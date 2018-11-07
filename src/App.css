@@ -30,3 +30,52 @@
     transform: rotate(360deg);
   }
 }
+
+#image-0 {
+  left: 0px;
+  height: 200px;
+  width: 75px;
+  background: url('./images/man.png') -0px 0;
+}
+
+#image-1 {
+  left: 0px;
+  height: 200px;
+  width: 75px;
+  background: url('./images/man.png') -75px 0;
+}
+
+#image-2 {
+  left: 0px;
+  height: 200px;
+  width: 75px;
+  background: url('./images/man.png') -150px 0;
+}
+
+#image-3 {
+  left: 0px;
+  height: 200px;
+  width: 75px;
+  background: url('./images/man.png') -225px 0;
+}
+
+#image-4 {
+  left: 0px;
+  height: 200px;
+  width: 75px;
+  background: url('./images/man.png') -300px 0;
+}
+
+/* #image-5 {
+  left: 0px;
+  height: 200px;
+  width: 75px;
+  background: url('./images/man.png') -375px 0;
+} */
+
+#image-5 {
+  left: 0px;
+  height: 200px;
+  width: 75px;
+  background: url('./images/man.png') -450px 0;
+}
