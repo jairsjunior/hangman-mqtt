@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Route } from 'react-router'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import { Route } from 'react-router'
 
 
 import Home from './components/home/Home'
@@ -34,12 +34,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
-          <div>
-            <Route path="/" exact={true} component={Home} /> 
-            <Route path="/player1" exact={true} component={this.HomePlayer1}/>
-            <Route path="/player2" exact={true} component={this.HomePlayer2}/>
-          </div>
+        <Router basename={process.env.PUBLIC_URL}>
+          <Switch>
+            <Route path="/" exact component={Home} /> 
+            <Route path="/player1" component={this.HomePlayer1}/>
+            <Route path="/player2" component={this.HomePlayer2}/>
+          </Switch>
         </Router>
       </div>
     );
