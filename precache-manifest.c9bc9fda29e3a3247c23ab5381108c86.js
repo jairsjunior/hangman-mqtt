@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/hangman-mqtt/static/js/runtime~main.696c4bd9.js"
   },
   {
-    "revision": "8b6d7ef7b00b44ed4c88",
-    "url": "/hangman-mqtt/static/js/main.8b6d7ef7.chunk.js"
+    "revision": "4e6fb48b7fc640f94815",
+    "url": "/hangman-mqtt/static/js/main.4e6fb48b.chunk.js"
   },
   {
-    "revision": "f2cd2e4695440254fc14",
-    "url": "/hangman-mqtt/static/js/1.f2cd2e46.chunk.js"
+    "revision": "62811c873f49e2e83068",
+    "url": "/hangman-mqtt/static/js/1.62811c87.chunk.js"
   },
   {
-    "revision": "8b6d7ef7b00b44ed4c88",
+    "revision": "4e6fb48b7fc640f94815",
     "url": "/hangman-mqtt/static/css/main.02648cd7.chunk.css"
   },
   {
-    "revision": "f2cd2e4695440254fc14",
+    "revision": "62811c873f49e2e83068",
     "url": "/hangman-mqtt/static/css/1.e722cb11.chunk.css"
   },
   {
-    "revision": "a4d03f51691ca87e7ec2f40089f87780",
+    "revision": "b6a38be0106520663a0ceafcc87e03ab",
     "url": "/hangman-mqtt/index.html"
   }
 ];
