@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/hangman-mqtt/static/js/runtime~main.696c4bd9.js"
   },
   {
-    "revision": "90050b3677b1082fb09d",
-    "url": "/hangman-mqtt/static/js/main.90050b36.chunk.js"
+    "revision": "8b6d7ef7b00b44ed4c88",
+    "url": "/hangman-mqtt/static/js/main.8b6d7ef7.chunk.js"
   },
   {
-    "revision": "dcb9a9614a62737fe0be",
-    "url": "/hangman-mqtt/static/js/1.dcb9a961.chunk.js"
+    "revision": "f2cd2e4695440254fc14",
+    "url": "/hangman-mqtt/static/js/1.f2cd2e46.chunk.js"
   },
   {
-    "revision": "90050b3677b1082fb09d",
-    "url": "/hangman-mqtt/static/css/main.5c94e060.chunk.css"
+    "revision": "8b6d7ef7b00b44ed4c88",
+    "url": "/hangman-mqtt/static/css/main.02648cd7.chunk.css"
   },
   {
-    "revision": "dcb9a9614a62737fe0be",
+    "revision": "f2cd2e4695440254fc14",
     "url": "/hangman-mqtt/static/css/1.e722cb11.chunk.css"
   },
   {
-    "revision": "6a1c40dd2f5d7e981bc927d4cb4c51cc",
+    "revision": "a4d03f51691ca87e7ec2f40089f87780",
     "url": "/hangman-mqtt/index.html"
   }
 ];
