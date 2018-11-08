@@ -21,9 +21,9 @@ export default class Home extends Component {
                 <Row>
                     <Col xs={12} md={6}>
                         <Row>
-                            <Palavras ></Palavras>
+                            <Palavras type="local"></Palavras>
                         </Row>
-                        <Row>
+                        {/* <Row>
                             <Col xs={12} md={12}>
                                 <PlayerInput player="Jogador 1" code="1"></PlayerInput>
                             </Col>
@@ -32,7 +32,7 @@ export default class Home extends Component {
                             <Col xs={12} md={12}>
                                 <PlayerInput player="Jogador 2" code="2"></PlayerInput>
                             </Col>
-                        </Row>
+                        </Row> */}
                     </Col>
                     <Col xs={12} md={6}>
                         <Row>

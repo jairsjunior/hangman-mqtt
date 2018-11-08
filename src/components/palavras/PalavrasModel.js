@@ -16,18 +16,27 @@ export default class PalavrasModel extends RhelenaPresentationModel {
 
         manuh.subscribe(`forca/player/letter/set`, `Palavras`, (msg, info) => {
             if(msg != undefined){
+                if(msg.letter == undefined){
+                    msg = JSON.parse(msg);
+                }
                 this.testLetter(msg.letter, msg.playerCode);
             }
         });
 
         manuh.subscribe(`forca/player/word/set`, `Palavras`, (msg, info) => {
             if(msg != undefined){
+                if(props.type == "remote"){
+                    msg = JSON.parse(msg);
+                }
                 this.testWord(msg.word, msg.playerCode);
             }
         });
 
-        manuh.subscribe(`forca/question/set`, `Palavras`, (msg, info) => {
+        manuh.subscribe(props.type == "local" ? `forca/question/set` : `forca/remote/question/set`, `Palavras`, (msg, info) => {
             if(msg != undefined){
+                if(props.type == "remote"){
+                    msg = JSON.parse(msg);
+                }
                 this.question = msg;
                 this.letterCorrect = 0;
                 this.letters = {};
@@ -68,6 +77,7 @@ export default class PalavrasModel extends RhelenaPresentationModel {
             this.letters[tmpLetter] = true;
             for(let index in this.lettersShow){
                 if(this.lettersShow[index].letter == tmpLetter){
+                    manuh.publish(`forca/remote/player/letter/set`, JSON.stringify({ letter: tmpLetter, player: this.playerName }));
                     this.lettersShow[index].visible = true;
                     this.letterCorrect++;
                     this.lettersShow = this.lettersShow;

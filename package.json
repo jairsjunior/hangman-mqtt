@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "manuh": "^1.4.0",
+    "manuh": "1.3.0",
     "manuh-bridge": "0.0.2",
     "mqtt": "^2.18.8",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-flexbox-grid": "^2.1.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "rhelena": "^1.2.4"
   },
