@@ -5,6 +5,8 @@ import HomePlayerModel from './HomePlayerModel'
 import Forca from '../forca/Forca'
 // import Palavras from '../palavras/Palavras'
 import PlayerInput from '../player-input/PlayerInput'
+import NavBar from '../nav-bar/Navbar'
+import Panel from 'react-bootstrap/lib/Panel'
 
 export default class HomePlayer extends Component {
 
@@ -14,30 +16,30 @@ export default class HomePlayer extends Component {
 
     render(){
         return (
-            <Grid fluid>
-                <Row>
-                    <h1>Forca do 5 S</h1>
-                </Row>
-                <Row>
-                    <Col xs={12} md={6}>
-                        <Row>
-                            {/* <Palavras type="remote"/> */}
-                        </Row>
-                        <Row>
-                            <Col xs={12} md={12}>
-                                <PlayerInput player={this.state.playerName} code={this.state.playerCode}></PlayerInput>
-                            </Col>
-                        </Row>
-                    </Col>
-                    <Col xs={12} md={6}>
-                        <Row>
-                            <Col xs={12} md={6}>
-                                <Forca player={this.state.playerName} code={this.state.playerCode}></Forca>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-            </Grid>
+            <div>
+                <NavBar type="player"></NavBar>
+                <Grid fluid>
+                    <Row>
+                        <Col xs={12} md={6}>
+                            <PlayerInput player={this.state.playerName} code={this.state.playerCode}></PlayerInput>
+                        </Col>
+                        <Col xs={12} md={6}>
+                            <Row style={{ paddingTop: '3vh', height: '80vh'}}>
+                                <Col xs={12} md={6}>
+                                    <Panel bsStyle="primary" style={{ height: '100%' }}>
+                                        <Panel.Heading>
+                                            <Panel.Title componentClass="h3">{ this.state.playerName }</Panel.Title>
+                                        </Panel.Heading>
+                                        <Panel.Body style={{ paddingTop: '0px' }}>
+                                            <Forca player={this.state.playerName} code={this.state.playerCode}></Forca>
+                                        </Panel.Body>
+                                    </Panel>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Grid>
+            </div>
         )
     }
 }

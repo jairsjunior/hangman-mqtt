@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import { RhelenaPresentationModel } from 'rhelena';
+import { RhelenaPresentationModel, globalState } from 'rhelena';
 import manuh from 'manuh';
 
 export default class PlayerInputModel extends RhelenaPresentationModel {
@@ -8,6 +8,7 @@ export default class PlayerInputModel extends RhelenaPresentationModel {
         this.playerName= props.player;
         this.playerCode= props.code;
         this.letter = '';
+        this.word = '';
         this.myTurn = false;
 
         manuh.subscribe(`forca/player/turn/set`, `PlayerInput-${this.playerCode}`, (msg, info) => {
@@ -22,6 +23,7 @@ export default class PlayerInputModel extends RhelenaPresentationModel {
                 }else{
                     this.myTurn = false;
                 }
+                globalState['gamePlay/myturn'] = this.myTurn;
             }
         })
 
@@ -32,17 +34,42 @@ export default class PlayerInputModel extends RhelenaPresentationModel {
                 }
             }
         })
+
+        manuh.subscribe(`forca/remote/end`, `PlayerInput-${this.playerCode}-remote`, (msg, info) => {
+            if(msg != null){
+                msg = JSON.parse(msg);
+                if(msg.runningGame == false){
+                    this.myTurn = false;
+                }
+            }
+        })
     }
 
     testLetter(){
-        if(this.letter != ''){
+        if(this.letter.trim() != ''){
             manuh.publish(`forca/player/letter/set`, JSON.stringify({ letter: this.letter, player: this.playerName, playerCode: this.playerCode }));
-            manuh.publish(`forca/player/turn/change`, JSON.stringify({ actual: this.playerCode }));
+            // manuh.publish(`forca/player/turn/change`, JSON.stringify({ actual: this.playerCode }));
             this.letter = '';
+        }else{
+            console.log('Campo não pode ser vazio!');
+        }
+    }
+
+    testWord(){
+        if(this.word.trim() != ''){
+            manuh.publish(`forca/player/word/set`, JSON.stringify({ word: this.word, player: this.playerName, playerCode: this.playerCode }));
+            // manuh.publish(`forca/player/turn/change`, JSON.stringify({ actual: this.playerCode }));
+            this.word = '';
+        }else{
+            console.log('Campo não pode ser vazio!');
         }
     }
     
     setLetter(letter){
         this.letter = letter;
+    }
+
+    setWord(word){
+        this.word = word;
     }
 }

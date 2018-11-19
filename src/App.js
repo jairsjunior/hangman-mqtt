@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import createHashHistory from 'history/createHashHistory';
 // import { Route } from 'react-router'
 
 
@@ -30,11 +31,10 @@ class App extends Component {
     );
   }
   
-
   render() {
     return (
       <div className="App">
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
           <Switch>
             <Route path="/" exact component={Home} /> 
             <Route path="/player1" component={this.HomePlayer1}/>

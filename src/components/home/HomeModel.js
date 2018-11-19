@@ -7,12 +7,6 @@ export default class HomeModel extends RhelenaPresentationModel {
     constructor(props){
         super(props);
 
-        this.questions = [
-            { text: "Teste" , word: "teste" },
-            { text: "Jane" , word: "jane" },
-            { text: "Junior" , word: "junior" },
-        ]
-
         this.actualPlayer = "1";
 
         manuh.subscribe(`forca/player/turn/change`, `HomeModel`, (msg, info) => {
@@ -35,8 +29,21 @@ export default class HomeModel extends RhelenaPresentationModel {
     
         this.manuhBridge = new ManuhBridge(manuh, mqttConfig, ()=>{
             console.log('Client connected!');
-            this.manuhBridge.subscribeRemote2LocalTopics([ 'forca/player/turn/change', 'forca/player/letter/set' ]);
-            this.manuhBridge.subscribeLocal2RemoteTopics([ 'forca/player/turn/set', 'forca/end', 'forca/remote/question/set', 'forca/remote/player/letter/set', 'forca/player/1/add', 'forca/player/2/add' ]);
+            this.manuhBridge.subscribeRemote2LocalTopics([ 
+                'forca/player/letter/set',
+                'forca/player/word/set'
+            ]);
+            this.manuhBridge.subscribeLocal2RemoteTopics([ 
+                'forca/player/turn/set', 
+                'forca/player/turn/change',
+                // 'forca/end', 
+                'forca/remote/end',
+                'forca/player/1/add', 
+                'forca/player/2/add', 
+                'forca/remote/question/set', 
+                'forca/remote/player/letter/set', 
+                'forca/remote/clean/set',
+            ]);
         });
         
     }
@@ -55,5 +62,6 @@ export default class HomeModel extends RhelenaPresentationModel {
 
     cleanGame(){
         window.location.reload();
+        manuh.publish(`forca/remote/clean/set`, JSON.stringify({ clean: true }));
     }
 }

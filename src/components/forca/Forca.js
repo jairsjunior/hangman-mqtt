@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { Grid, Row, Col} from 'react-flexbox-grid';
 import { attachModelToView, globalState } from 'rhelena';
 import ForcaModel from './ForcaModel'
+// import Confetti from 'react-dom-confetti';
+import Confetti from 'react-confetti';
 
 export default class Forca extends Component {
 
@@ -11,14 +13,18 @@ export default class Forca extends Component {
 
     render(){
         return (
-            
-            <div style={{ width: "100%"}}>
-                <h2>{this.state.playerName || 'Jogador 1'}</h2>
-                {/* <span> { this.state.nomeImagem } - { this.state.error }</span> */}
-                <div style={{margin: "auto", width: "15%"}}>
+            <div style={{ position: 'relative', width: "100%", height: '70vh' }}>
+                <div style={{ display: 'flex',  justifyContent:'center', alignItems:'center' }}>
                     <div id={`image-${this.state.error}`}></div>
                 </div>
-                { this.state.endGame ? <h1> FIM DE JOGO! </h1> : ''}
+                { this.state.showMessage && (
+                    <div style={{ display: 'flex',  justifyContent:'center', alignItems:'center' }}> 
+                        <h1> {this.state.message} </h1>
+                    </div> )
+                }
+                { this.state.showConfetti && (
+                    <Confetti {...{ style:{ position: 'absolute', width: '100%', height: '100%', gravity: 0.01} }} />
+                )}
             </div>
         ) 
     }
