@@ -25,10 +25,10 @@ export default class HomeModel extends RhelenaPresentationModel {
 
     initManuhBridge() {
         let mqttConfig = {
-            protocol: 'wss',
-            host: 'iot.eclipse.org',
-            port: 443,
-            context: 'ws'
+            protocol: 'ws',
+            host: 'raspberrypi',
+            port: 9001,
+            context: ''
         }
     
         this.manuhBridge = new ManuhBridge(manuh, mqttConfig, ()=>{

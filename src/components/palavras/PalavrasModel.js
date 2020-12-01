@@ -59,6 +59,11 @@ export default class PalavrasModel extends RhelenaPresentationModel {
         if(word.length == this.wordSize){
             if(this.question.word.toUpperCase() == word.toUpperCase()){
                 console.log('Voce ganhou --> ', playerCode);
+                //Mostra a palavra nas caixinhas...
+                for(let index in this.lettersShow){
+                    this.lettersShow[index].visible = true;
+                }
+                this.lettersShow = this.lettersShow;
                 manuh.publish(`forca/end`, { type: "winner", player: playerCode, runningGame: false});
                 manuh.publish(`forca/remote/end`, JSON.stringify({ type: "winner", player: playerCode, runningGame: false}));
             }else{

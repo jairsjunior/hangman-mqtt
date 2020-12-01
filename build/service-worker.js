@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hangman-mqtt/precache-manifest.e71f1834da3663203e495f53db21c23c.js"
+  "/hangman-mqtt/precache-manifest.0a7f990e8baaf7c5d00130d98937850e.js"
 );
 
 workbox.clientsClaim();

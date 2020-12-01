@@ -1,0 +1,19 @@
+version: '3.5'
+
+services: 
+ mqtt:
+   image: flaviostutz/mosquitto
+   ports:
+    - 1883:1883
+    - 9901:9901
+   volumes:
+    - ./mqtt/config:/mqtt/config:ro
+    - ./mqtt/log:/mqtt/log
+    - ./mqtt/data/:/mqtt/data/
+
+ forca:
+    image: jairsjunior/forca-front
+    build: ./
+    ports:
+      - 8080:80
+
